@@ -1,0 +1,29 @@
+<resources>
+	<!-- Default screen margins, per the Android Design guidelines. -->
+	<dimen name="activity_horizontal_margin">16dp</dimen>
+	<dimen name="activity_vertical_margin">16dp</dimen>
+
+
+	<!-- base -->
+	<dimen name="base_space">8dp</dimen>
+	<dimen name="base_space_small">4dp</dimen>
+	<dimen name="base_space_tiny">2dp</dimen>
+	<dimen name="base_space_big">12dp</dimen>
+	<dimen name="base_space_large">16dp</dimen>
+	<dimen name="base_space_large_1_5">24dp</dimen>
+	<dimen name="base_space_huge">32dp</dimen>
+	<dimen name="base_space_huge_1_5">48dp</dimen>
+	<dimen name="base_space_huge_2">64dp</dimen>
+
+	<!-- list -->
+	<dimen name="min_list_item_height">44dp</dimen>
+	<dimen name="list_icon_size">28dp</dimen>
+	<dimen name="list_arrow_size">18dp</dimen>
+	<dimen name="base_list_item_stroke_width">2px</dimen>
+	<dimen name="divider_width">2px</dimen>
+
+
+	<!-- text -->
+	<dimen name="text_size_body">14sp</dimen>
+	<dimen name="text_size_body_dp">14dp</dimen>
+</resources>

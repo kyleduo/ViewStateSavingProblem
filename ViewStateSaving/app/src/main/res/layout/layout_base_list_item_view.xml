@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+				android:layout_width="match_parent"
+				android:layout_height="match_parent"
+				android:minHeight="@dimen/min_list_item_height"
+				android:paddingBottom="@dimen/base_space_small"
+				android:paddingLeft="@dimen/base_space_large"
+				android:paddingRight="@dimen/base_space_large"
+				android:paddingTop="@dimen/base_space_small">
+
+	<ImageView
+		android:id="@+id/base_list_item_icon_iv"
+		android:layout_width="@dimen/list_icon_size"
+		android:layout_height="@dimen/list_icon_size"
+		android:layout_centerVertical="true"
+		android:scaleType="centerInside"
+		android:src="@drawable/icon_account_about"/>
+
+	<ImageView
+		android:id="@+id/base_list_item_arrow_iv"
+		android:layout_width="@dimen/list_arrow_size"
+		android:layout_height="@dimen/list_arrow_size"
+		android:layout_alignParentEnd="true"
+		android:layout_alignParentRight="true"
+		android:layout_centerVertical="true"
+		android:scaleType="centerInside"
+		android:src="@drawable/icon_list_arrow"/>
+
+	<ImageView
+		android:id="@+id/base_list_item_right_icon_iv"
+		android:layout_width="@dimen/list_icon_size"
+		android:layout_height="@dimen/list_icon_size"
+		android:layout_alignParentEnd="true"
+		android:layout_alignParentRight="true"
+		android:layout_centerVertical="true"
+		android:scaleType="centerInside"
+		android:src="@drawable/icon_account_about"/>
+
+	<TextView
+		android:id="@+id/base_list_item_text_tv"
+		style="@style/BodyTextView"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_centerVertical="true"
+		android:layout_toEndOf="@+id/base_list_item_icon_iv"
+		android:layout_toRightOf="@+id/base_list_item_icon_iv"
+		android:text="银行卡号："/>
+
+	<LinearLayout
+		android:id="@+id/base_list_item_desc_wrapper"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_centerVertical="true"
+		android:layout_toEndOf="@+id/base_list_item_text_tv"
+		android:layout_toLeftOf="@+id/base_list_item_arrow_iv"
+		android:layout_toRightOf="@+id/base_list_item_text_tv"
+		android:layout_toStartOf="@+id/base_list_item_arrow_iv"
+		android:gravity="right|center_vertical"
+		android:orientation="horizontal"
+		>
+		<!-- 根据editable参数创建TextView或EditText -->
+	</LinearLayout>
+
+</merge>

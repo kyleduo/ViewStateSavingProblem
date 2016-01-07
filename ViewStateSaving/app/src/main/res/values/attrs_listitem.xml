@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<declare-styleable name="BaseListItem">
+		<attr name="desc_text_color" format="color|reference"/>
+		<attr name="desc_text_size" format="dimension|reference"/>
+		<attr name="desc_text" format="string|reference"/>
+		<attr name="title_text" format="string|reference"/>
+		<attr name="title_text_color" format="color|reference"/>
+		<attr name="title_text_size" format="dimension|reference"/>
+		<attr name="list_icon" format="reference"/>
+		<attr name="right_icon" format="reference"/>
+		<attr name="show_arrow" format="boolean"/>
+		<attr name="padding_horizontal" format="dimension|reference"/>
+		<attr name="padding_vertical" format="dimension|reference"/>
+		<attr name="padding_start" format="dimension|reference"/>
+		<attr name="padding_end" format="dimension|reference"/>
+		<attr name="desc_editable" format="boolean"/>
+		<attr name="desc_hint" format="string|reference"/>
+		<attr name="show_bottom_line" format="boolean"/>
+		<attr name="show_top_line" format="boolean"/>
+		<attr name="bottom_line_padding_start" format="dimension|reference"/>
+		<attr name="bottom_line_padding_end" format="dimension|reference"/>
+		<attr name="bottom_line_width" format="dimension|reference"/>
+		<attr name="bottom_line_color" format="color|reference"/>
+		<attr name="use_for_static" format="boolean"/>
+		<attr name="use_min_height" format="boolean"/>
+	</declare-styleable>
+</resources>

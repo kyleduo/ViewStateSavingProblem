@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:orientation="vertical"
+	tools:context="com.kyleduo.problem.viewstatesaving.MainActivity">
+
+	<TextView
+		style="@style/BodyTextView"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:singleLine="false"
+		android:text="Turn on the ALWAYS FINISH ACTIVITIES option and click the first item."/>
+
+	<com.kyleduo.problem.viewstatesaving.view.BaseListItem
+		android:id="@+id/base_item"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_marginTop="@dimen/base_space_large"
+		app:desc_text="Desc"
+		app:show_arrow="true"
+		app:show_bottom_line="true"
+		app:show_top_line="true"
+		app:title_text="Base"
+		/>
+
+	<com.kyleduo.problem.viewstatesaving.view.CheckableListItem
+		android:id="@+id/checkable_item"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		app:desc_text="Desc"
+		app:show_arrow="true"
+		app:show_bottom_line="true"
+		app:title_text="Checkable"
+		/>
+</LinearLayout>
