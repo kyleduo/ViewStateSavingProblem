@@ -185,7 +185,6 @@ public class BaseListItem extends RelativeLayout {
 				LayoutInflater.from(getContext()).inflate(R.layout.list_item_right_textview, mDescWrapper, true);
 			}
 			mDescTv = (TextView) findViewById(R.id.base_list_item_desc_tv);
-			mDescTv.setSaveEnabled(false);
 			mDescTv.setInputType(anInt);
 
 			if (mDescEditable) {
@@ -292,7 +291,6 @@ public class BaseListItem extends RelativeLayout {
 				LayoutInflater.from(getContext()).inflate(R.layout.list_item_right_textview, mDescWrapper, true);
 			}
 			mDescTv = (TextView) findViewById(R.id.base_list_item_desc_tv);
-			mDescTv.setSaveEnabled(false);
 			if (mDescEditable) {
 				mDescTv.setEnabled(true);
 				mDescTv.setHint(mHint);
@@ -458,7 +456,6 @@ public class BaseListItem extends RelativeLayout {
 	public Parcelable onSaveInstanceState() {
 		Parcelable superState = super.onSaveInstanceState();
 		SavedState ss = new SavedState(superState);
-		ss.desc = mDescTv.getText().toString();
 		ss.childrenStates = new SparseArray();
 		for (int i = 0; i < getChildCount(); i++) {
 			getChildAt(i).saveHierarchyState(ss.childrenStates);
@@ -470,7 +467,6 @@ public class BaseListItem extends RelativeLayout {
 	public void onRestoreInstanceState(Parcelable state) {
 		SavedState ss = (SavedState) state;
 		super.onRestoreInstanceState(ss.getSuperState());
-		mDescTv.setText(ss.desc);
 		for (int i = 0; i < getChildCount(); i++) {
 			getChildAt(i).restoreHierarchyState(ss.childrenStates);
 		}
@@ -507,7 +503,6 @@ public class BaseListItem extends RelativeLayout {
 			}
 		};
 
-		String desc;
 		SparseArray childrenStates;
 
 		SavedState(Parcelable superState) {
@@ -516,14 +511,12 @@ public class BaseListItem extends RelativeLayout {
 
 		private SavedState(Parcel in, ClassLoader classLoader) {
 			super(in);
-			desc = in.readString();
 			childrenStates = in.readSparseArray(classLoader);
 		}
 
 		@Override
 		public void writeToParcel(Parcel out, int flags) {
 			super.writeToParcel(out, flags);
-			out.writeString(desc);
 			out.writeSparseArray(childrenStates);
 		}
 
@@ -531,7 +524,7 @@ public class BaseListItem extends RelativeLayout {
 		public String toString() {
 			return "BaseListItem.SavedState{"
 					+ Integer.toHexString(System.identityHashCode(this))
-					+ " desc=" + desc + "}";
+					+ " childrenStates=" + childrenStates + "}";
 		}
 	}
 }

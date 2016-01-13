@@ -15,6 +15,13 @@
 		android:singleLine="false"
 		android:text="Turn on the ALWAYS FINISH ACTIVITIES option and click the first item."/>
 
+	<CheckBox
+		android:id="@+id/cb"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:freezesText="true"
+		android:text="Test view states saving."/>
+
 	<com.kyleduo.problem.viewstatesaving.view.BaseListItem
 		android:id="@+id/base_item"
 		android:layout_width="match_parent"
@@ -31,9 +38,63 @@
 		android:id="@+id/checkable_item"
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
-		app:desc_text="Desc"
+		app:desc_text="Desc1"
 		app:show_arrow="true"
 		app:show_bottom_line="true"
 		app:title_text="Checkable"
 		/>
+
+	<com.kyleduo.problem.viewstatesaving.view.BaseListItem
+		android:id="@+id/editable_item"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		app:desc_editable="true"
+		app:desc_hint="edit"
+		app:show_arrow="true"
+		app:show_bottom_line="true"
+		app:title_text="Editable"
+		/>
+
+	<com.kyleduo.problem.viewstatesaving.view.BaseListItem
+		android:id="@+id/editable_item_2"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		app:desc_editable="true"
+		app:desc_hint="edit"
+		app:show_arrow="true"
+		app:show_bottom_line="true"
+		app:title_text="Editable2"
+		/>
+
+	<com.kyleduo.problem.viewstatesaving.view.SuperView
+		android:id="@+id/spv"
+		android:layout_width="40dp"
+		android:layout_height="20dp"
+		android:background="#a12360"/>
+
+	<com.kyleduo.problem.viewstatesaving.view.SubView
+		android:id="@+id/sbv"
+		android:layout_width="40dp"
+		android:layout_height="20dp"
+		android:layout_marginTop="20dp"
+		android:background="#920318"/>
+
+	<com.kyleduo.problem.viewstatesaving.view.SubSubView
+		android:id="@+id/sbbv"
+		android:layout_width="40dp"
+		android:layout_height="20dp"
+		android:layout_marginTop="20dp"
+		android:background="#32bd71"/>
+
+	<com.kyleduo.problem.viewstatesaving.view.CustomGroup
+		android:id="@+id/cg1"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_marginTop="20dp"/>
+
+	<com.kyleduo.problem.viewstatesaving.view.CustomGroup
+		android:id="@+id/cg2"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_marginTop="20dp"/>
 </LinearLayout>

@@ -77,7 +77,6 @@ public class CheckableListItem extends BaseListItem implements Checkable {
 		mOnCheckedChangedListener = onCheckedChangedListener;
 	}
 
-	//  // FIXME(kyleduo): 16/1/5
 	@Override
 	public Parcelable onSaveInstanceState() {
 		Parcelable superState = super.onSaveInstanceState();
@@ -101,7 +100,7 @@ public class CheckableListItem extends BaseListItem implements Checkable {
 		void onCheckedChangeListener(CheckableListItem item, boolean checked);
 	}
 
-	public static class SavedState extends BaseSavedState {
+	public static class SavedState implements Parcelable {
 		public static final Creator<SavedState> CREATOR
 				= new Creator<SavedState>() {
 			public SavedState createFromParcel(Parcel in) {
@@ -114,19 +113,26 @@ public class CheckableListItem extends BaseListItem implements Checkable {
 		};
 		boolean checked;
 
+		private Parcelable mSuperState;
+
 		SavedState(Parcelable superState) {
-			super(superState);
+			mSuperState = superState != BaseSavedState.EMPTY_STATE ? superState : null;
 		}
 
 		private SavedState(Parcel in) {
-			super(in);
+			Parcelable superState = in.readParcelable(CheckableListItem.class.getClassLoader());
+			mSuperState = superState != BaseSavedState.EMPTY_STATE ? superState : null;
 			checked = (Boolean) in.readValue(null);
+		}
+		@Override
+		public void writeToParcel(Parcel out, int flags) {
+			out.writeParcelable(mSuperState, flags);
+			out.writeValue(checked);
 		}
 
 		@Override
-		public void writeToParcel(Parcel out, int flags) {
-			super.writeToParcel(out, flags);
-			out.writeValue(checked);
+		public int describeContents() {
+			return 0;
 		}
 
 		@Override
@@ -134,6 +140,10 @@ public class CheckableListItem extends BaseListItem implements Checkable {
 			return "CheckableListItem.SavedState{"
 					+ Integer.toHexString(System.identityHashCode(this))
 					+ " checked=" + checked + "}";
+		}
+
+		public Parcelable getSuperState() {
+			return mSuperState;
 		}
 	}
 
