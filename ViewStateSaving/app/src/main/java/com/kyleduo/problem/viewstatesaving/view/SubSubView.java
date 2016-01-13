@@ -48,8 +48,6 @@ public class SubSubView extends SubView {
 	}
 
 	public static class SavedState implements Parcelable {
-		public static final SavedState EMPTY_STATE = new SavedState() {
-		};
 
 		public static final Creator<SavedState> CREATOR
 				= new Creator<SavedState>() {
@@ -62,22 +60,18 @@ public class SubSubView extends SubView {
 				return new SavedState[size];
 			}
 		};
-		// This keeps the parent(RecyclerView)'s state
+		
 		private String name;
 		private Parcelable mSuperState;
 
 		public SavedState(Parcel source) {
 			Parcelable superState = source.readParcelable(SubSubView.class.getClassLoader());
-			this.mSuperState = superState != null ? superState : EMPTY_STATE;
+			this.mSuperState = superState != null ? superState : BaseSavedState.EMPTY_STATE;
 			name = source.readString();
 		}
 
-		SavedState() {
-			mSuperState = null;
-		}
-
 		SavedState(Parcelable superState) {
-			this.mSuperState = superState != EMPTY_STATE ? superState : null;
+			this.mSuperState = superState != null ? superState : BaseSavedState.EMPTY_STATE;
 		}
 
 		@Override

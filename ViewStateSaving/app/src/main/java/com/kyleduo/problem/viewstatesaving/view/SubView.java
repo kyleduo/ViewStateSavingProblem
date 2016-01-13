@@ -47,53 +47,46 @@ public class SubView extends SuperView {
 		this.isChecked = ss.checked;
 	}
 
-	public static class SavedState implements Parcelable {
-		public static final SavedState EMPTY_STATE = new SavedState() {
-		};
+public static class SavedState implements Parcelable {
+	public static final Creator<SavedState> CREATOR
+			= new Creator<SavedState>() {
 
-		public static final Creator<SavedState> CREATOR
-				= new Creator<SavedState>() {
-
-			public SavedState createFromParcel(Parcel in) {
-				return new SavedState(in);
-			}
-
-			public SavedState[] newArray(int size) {
-				return new SavedState[size];
-			}
-		};
-		// This keeps the parent(RecyclerView)'s state
-		private boolean checked;
-		private Parcelable mSuperState;
-
-		public SavedState(Parcel source) {
-			Parcelable superState = source.readParcelable(SuperView.class.getClassLoader());
-			this.mSuperState = superState != null ? superState : EMPTY_STATE;
-			checked = (boolean) source.readValue(this.getClass().getClassLoader());
+		public SavedState createFromParcel(Parcel in) {
+			return new SavedState(in);
 		}
 
-		SavedState() {
-			mSuperState = null;
+		public SavedState[] newArray(int size) {
+			return new SavedState[size];
 		}
+	};
 
-		SavedState(Parcelable superState) {
-			this.mSuperState = superState != EMPTY_STATE ? superState : null;
-		}
+	private boolean checked;
+	private Parcelable mSuperState;
 
-		@Override
-		public int describeContents() {
-			return 0;
-		}
-
-		@Override
-		public void writeToParcel(Parcel out, int flags) {
-			out.writeParcelable(mSuperState, flags);
-			out.writeValue(checked);
-		}
-
-		public Parcelable getSuperState() {
-			return mSuperState;
-		}
+	public SavedState(Parcel source) {
+		Parcelable superState = source.readParcelable(SuperView.class.getClassLoader());
+		this.mSuperState = superState != null ? superState : BaseSavedState.EMPTY_STATE;
+		checked = (boolean) source.readValue(this.getClass().getClassLoader());
 	}
+
+	SavedState(Parcelable superState) {
+		this.mSuperState = superState != null ? superState : BaseSavedState.EMPTY_STATE;
+	}
+
+	@Override
+	public int describeContents() {
+		return 0;
+	}
+
+	@Override
+	public void writeToParcel(Parcel out, int flags) {
+		out.writeParcelable(mSuperState, flags);
+		out.writeValue(checked);
+	}
+
+	public Parcelable getSuperState() {
+		return mSuperState;
+	}
+}
 
 }
